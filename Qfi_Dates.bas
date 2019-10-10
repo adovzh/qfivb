@@ -17,8 +17,14 @@ Public Function QFI_RELDATEADD(d As Date, reldate As String) As Variant
     num = Val(numStr)
     
     Select Case Right(reldate, 1)
-    Case "D"
+    Case "D", "d"
         QFI_RELDATEADD = DateAdd("d", num, d)
+    Case "W", "w"
+        QFI_RELDATEADD = DateAdd("ww", num, d)
+    Case "M", "m"
+        QFI_RELDATEADD = DateAdd("m", num, d)
+    Case "Y", "y"
+        QFI_RELDATEADD = DateAdd("yyyy", num, d)
     Case Else
         GoTo ErrSection
     End Select
