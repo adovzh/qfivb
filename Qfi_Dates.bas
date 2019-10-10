@@ -18,7 +18,9 @@ Public Function QFI_RELDATEADD(d As Date, reldate As String) As Variant
     
     Select Case Right(reldate, 1)
     Case "D"
-    QFI_RELDATEADD = DateAdd("d", num, d)
+        QFI_RELDATEADD = DateAdd("d", num, d)
+    Case Else
+        GoTo ErrSection
     End Select
     Exit Function
 ErrSection:
